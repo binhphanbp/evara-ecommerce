@@ -170,7 +170,7 @@ function renderProducts() {
     productList.innerHTML += productHTML;
   }
 }
-renderProducts();
+// renderProducts();
 
 /*=============== SHOW MENU ===============*/
 const navMenu = document.getElementById('nav-menu'),
@@ -286,3 +286,186 @@ tabs.forEach((tab) => {
     tab.classList.add('active-tab');
   });
 });
+
+// VALIDATE FORM
+// Hàm xóa lỗi trước khi validate lại
+function clearErrors() {
+  let errors = document.getElementsByClassName('error');
+  for (let i = 0; i < errors.length; i++) {
+    errors[i].innerHTML = '';
+  }
+}
+
+// Hàm xóa form Login
+function clearLoginForm() {
+  document.getElementById('loginEmail').value = '';
+  document.getElementById('loginPassword').value = '';
+  document.getElementById('loginEmailError').innerHTML = '';
+  document.getElementById('loginPasswordError').innerHTML = '';
+}
+
+// Hàm xóa form Register
+function clearRegisterForm() {
+  document.getElementById('regUsername').value = '';
+  document.getElementById('regEmail').value = '';
+  document.getElementById('regPassword').value = '';
+  document.getElementById('regConfirmPassword').value = '';
+  document.getElementById('regUsernameError').innerHTML = '';
+  document.getElementById('regEmailError').innerHTML = '';
+  document.getElementById('regPasswordError').innerHTML = '';
+  document.getElementById('regConfirmPasswordError').innerHTML = '';
+}
+
+// Hàm khởi tạo validate form
+function initValidateForms() {
+  let loginForm = document.getElementById('loginForm');
+  let registerForm = document.getElementById('registerForm');
+
+  // Validate form Login
+  if (loginForm) {
+    loginForm.onsubmit = function (event) {
+      event.preventDefault(); // Ngăn gửi form
+      clearErrors();
+
+      let email = document.getElementById('loginEmail').value;
+      let password = document.getElementById('loginPassword').value;
+
+      let hasError = false;
+
+      if (email === '') {
+        document.getElementById('loginEmailError').innerHTML =
+          'Please enter email!';
+        hasError = true;
+      } else {
+        let hasAtSymbol = false;
+        for (let i = 0; i < email.length; i++) {
+          if (email[i] === '@') {
+            hasAtSymbol = true;
+            break;
+          }
+        }
+        if (!hasAtSymbol) {
+          document.getElementById('loginEmailError').innerHTML =
+            "Email must have '@'!";
+          hasError = true;
+        }
+      }
+
+      if (password === '') {
+        document.getElementById('loginPasswordError').innerHTML =
+          'Please enter password!';
+        hasError = true;
+      } else if (password.length < 6) {
+        document.getElementById('loginPasswordError').innerHTML =
+          'Password must be more than 5 characters!';
+        hasError = true;
+      }
+
+      if (hasError) {
+        return false;
+      }
+
+      let userData = localStorage.getItem('user');
+      if (!userData) {
+        alert('Account does not exist, please register!');
+        return false;
+      }
+
+      userData = JSON.parse(userData);
+
+      if (userData.email === email && userData.password === password) {
+        alert('Login successful!');
+        window.location.href = 'index.html';
+      } else {
+        alert('Account does not exist, please register!');
+      }
+
+      clearLoginForm();
+      return false;
+    };
+  }
+
+  // Validate form Register
+  if (registerForm) {
+    registerForm.onsubmit = function (event) {
+      event.preventDefault(); // Ngăn gửi form
+      clearErrors();
+
+      let username = document.getElementById('regUsername').value;
+      let email = document.getElementById('regEmail').value;
+      let password = document.getElementById('regPassword').value;
+      let confirmPassword = document.getElementById('regConfirmPassword').value;
+
+      let hasError = false;
+
+      if (username === '') {
+        document.getElementById('regUsernameError').innerHTML =
+          'Please enter username!';
+        hasError = true;
+      } else if (username.length <= 5) {
+        document.getElementById('regUsernameError').innerHTML =
+          'Username must be more than 5 characters!';
+        hasError = true;
+      }
+
+      if (email === '') {
+        document.getElementById('regEmailError').innerHTML =
+          'Please enter email!';
+        hasError = true;
+      } else {
+        let hasAtSymbol = false;
+        for (let i = 0; i < email.length; i++) {
+          if (email[i] === '@') {
+            hasAtSymbol = true;
+            break;
+          }
+        }
+        if (!hasAtSymbol) {
+          document.getElementById('regEmailError').innerHTML =
+            "Email must have '@'!";
+          hasError = true;
+        }
+      }
+
+      if (password === '') {
+        document.getElementById('regPasswordError').innerHTML =
+          'Please enter password!';
+        hasError = true;
+      } else if (password.length < 6) {
+        document.getElementById('regPasswordError').innerHTML =
+          'Password must be more than 5 characters!';
+        hasError = true;
+      }
+
+      if (confirmPassword === '') {
+        document.getElementById('regConfirmPasswordError').innerHTML =
+          'Please enter confirm password!';
+        hasError = true;
+      } else if (password !== confirmPassword) {
+        document.getElementById('regConfirmPasswordError').innerHTML =
+          'Confirm password does not match!';
+        hasError = true;
+      }
+
+      if (hasError) {
+        return false;
+      }
+
+      let userData = {
+        username: username,
+        email: email,
+        password: password,
+      };
+      localStorage.setItem('user', JSON.stringify(userData));
+
+      alert('Register successful!');
+      clearRegisterForm();
+      return false;
+    };
+  }
+}
+
+window.onload = function () {
+  renderProducts();
+  initValidateForms();
+};
