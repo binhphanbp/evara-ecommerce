@@ -268,6 +268,7 @@ function renderProducts() {
   }
 }
 
+// Khởi tạo
 cart.load();
 renderProducts();
 

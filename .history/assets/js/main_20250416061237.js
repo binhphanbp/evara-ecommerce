@@ -2,7 +2,7 @@
 let products = [
   {
     id: 1,
-    category: 'Shirts',
+    category: 'Clothing',
     title: 'Colorful Pattern Shirts',
     newPrice: 29.99,
     oldPrice: 35.99,
@@ -21,7 +21,7 @@ let products = [
   },
   {
     id: 2,
-    category: 'Shirts',
+    category: 'Clothing',
     title: 'Plain Cotton T-Shirt',
     newPrice: 19.5,
     oldPrice: 24.99,
@@ -40,7 +40,7 @@ let products = [
   },
   {
     id: 3,
-    category: 'Shoes',
+    category: 'Clothing',
     title: 'Vintage Denim Jacket',
     newPrice: 59.99,
     oldPrice: 69.99,
@@ -59,7 +59,7 @@ let products = [
   },
   {
     id: 4,
-    category: 'Pants',
+    category: 'Clothing',
     title: 'Checkered Flannel Shirt',
     newPrice: 34.75,
     oldPrice: 39.99,
@@ -78,7 +78,7 @@ let products = [
   },
   {
     id: 5,
-    category: 'Accessories',
+    category: 'Clothing',
     title: 'Striped Polo Shirt',
     newPrice: 25.99,
     oldPrice: 32.5,
@@ -97,7 +97,7 @@ let products = [
   },
   {
     id: 6,
-    category: 'Shirts',
+    category: 'Clothing',
     title: 'Floral Summer Dress',
     newPrice: 45.0,
     oldPrice: 55.0,
@@ -116,7 +116,7 @@ let products = [
   },
   {
     id: 7,
-    category: 'Shirts',
+    category: 'Clothing',
     title: 'Polka Dot Blouse',
     newPrice: 27.8,
     oldPrice: 34.99,
@@ -135,7 +135,7 @@ let products = [
   },
   {
     id: 8,
-    category: 'Shirts',
+    category: 'Clothing',
     title: 'Denim Shorts',
     newPrice: 22.99,
     oldPrice: 29.99,
@@ -158,6 +158,7 @@ let products = [
   },
 ];
 
+// Hàm render sản phẩm
 function renderProducts() {
   let productList = document.getElementById('productList');
   if (!productList) return;
@@ -170,69 +171,67 @@ function renderProducts() {
       ? `<div class="product__badge ${product.badgeClass}">${product.badge}</div>`
       : '';
     let productHTML = `
-                    <div class="product__item">
-                        <div class="product__banner">
-                            <a href="details.html" class="product__images" data-id="${
-                              product.id
-                            }">
-                                <img src="${product.imageDefault}" alt="${
+            <div class="product__item">
+                <div class="product__banner">
+                    <a href="details.html" class="product__images" data-id="${
+                      product.id
+                    }">
+                        <img src="${product.imageDefault}" alt="${
       product.title
     }" class="product__img default">
-                                <img src="${product.imageHover}" alt="${
+                        <img src="${product.imageHover}" alt="${
       product.title
     }" class="product__img hover">
-                            </a>
-                            <div class="product__actions">
-                                <a href="#" class="action__btn" aria-label="Quick View" data-id="${
-                                  product.id
-                                }">
-                                    <i class="fi fi-rs-eye"></i>
-                                </a>
-                                <a href="#" class="action__btn" aria-label="Add to Wishlist" data-id="${
-                                  product.id
-                                }">
-                                    <i class="fi fi-rs-heart"></i>
-                                </a>
-                                <a href="#" class="action__btn" aria-label="Compare" data-id="${
-                                  product.id
-                                }">
-                                    <i class="fi fi-rs-shuffle"></i>
-                                </a>
-                            </div>
-                            ${badgeHTML}
-                        </div>
-                        <div class="product__content">
-                            <span class="product__category">${
-                              product.category
-                            }</span>
-                            <a href="details.html" class="product__title-link" data-id="${
-                              product.id
-                            }">
-                                <h3 class="product__title">${product.title}</h3>
-                            </a>
-                            <div class="product__rating">
-                                <i class="fi fi-rs-star"></i>
-                                <i class="fi fi-rs-star"></i>
-                                <i class="fi fi-rs-star"></i>
-                                <i class="fi fi-rs-star"></i>
-                                <i class="fi fi-rs-star"></i>
-                            </div>
-                            <div class="product__price flex">
-                                <span class="new__price">$${product.newPrice.toFixed(
-                                  2
-                                )}</span>
-                                <span class="old__price">$${product.oldPrice.toFixed(
-                                  2
-                                )}</span>
-                            </div>
-                            <a href="#" class="action__btn cart__btn" aria-label="Add To Cart" data-id="${
-                              product.id
-                            }">
-                                <i class="fi fi-rs-shopping-bag-add"></i>
-                            </a>
-                        </div>
+                    </a>
+                    <div class="product__actions">
+                        <a href="#" class="action__btn" aria-label="Quick View" data-id="${
+                          product.id
+                        }">
+                            <i class="fi fi-rs-eye"></i>
+                        </a>
+                        <a href="#" class="action__btn" aria-label="Add to Wishlist" data-id="${
+                          product.id
+                        }">
+                            <i class="fi fi-rs-heart"></i>
+                        </a>
+                        <a href="#" class="action__btn" aria-label="Compare" data-id="${
+                          product.id
+                        }">
+                            <i class="fi fi-rs-shuffle"></i>
+                        </a>
                     </div>
-                `;
+                    ${badgeHTML}
+                </div>
+                <div class="product__content">
+                    <span class="product__category">${product.category}</span>
+                    <a href="details.html" class="product__title-link" data-id="${
+                      product.id
+                    }">
+                        <h3 class="product__title">${product.title}</h3>
+                    </a>
+                    <div class="product__rating">
+                        <i class="fi fi-rs-star"></i>
+                        <i class="fi fi-rs-star"></i>
+                        <i class="fi fi-rs-star"></i>
+                        <i class="fi fi-rs-star"></i>
+                        <i class="fi fi-rs-star"></i>
+                    </div>
+                    <div class="product__price flex">
+                        <span class="new__price">$${product.newPrice.toFixed(
+                          2
+                        )}</span>
+                        <span class="old__price">$${product.oldPrice.toFixed(
+                          2
+                        )}</span>
+                    </div>
+                    <a href="#" class="action__btn cart__btn" aria-label="Add To Cart" data-id="${
+                      product.id
+                    }">
+                        <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+            </div>
+        `;
     productList.innerHTML += productHTML;
   }
 
@@ -244,31 +243,14 @@ function renderProducts() {
     productLinks[i].onclick = function (event) {
       event.preventDefault();
       let productId = this.getAttribute('data-id');
-      let selectedProduct = null;
-      for (let j = 0; j < products.length; j++) {
-        if (products[j].id == productId) {
-          selectedProduct = products[j];
-          break;
-        }
-      }
+      let selectedProduct = products.find(function (p) {
+        return p.id == productId;
+      });
       localStorage.setItem('selectedProduct', JSON.stringify(selectedProduct));
       window.location.href = 'details.html';
     };
   }
-
-  // Gắn sự kiện cho nút Add to Cart
-  let cartButtons = document.querySelectorAll('.cart__btn');
-  for (let i = 0; i < cartButtons.length; i++) {
-    cartButtons[i].onclick = function (event) {
-      event.preventDefault();
-      let productId = this.getAttribute('data-id');
-      cart.add(productId);
-      alert('Đã thêm sản phẩm vào giỏ hàng!');
-    };
-  }
 }
-
-cart.load();
 renderProducts();
 
 /*=============== SHOW MENU ===============*/
@@ -289,18 +271,6 @@ if (navToggle) {
 if (navClose) {
   navClose.addEventListener('click', () => {
     navMenu.classList.remove('show-menu');
-  });
-}
-
-/*=============== IMAGE GALLERY ===============*/
-function imgGallery() {
-  const mainImg = document.querySelector('.details__img'),
-    smallImg = document.querySelectorAll('.details__small-img');
-
-  smallImg.forEach((img) => {
-    img.addEventListener('click', function () {
-      mainImg.src = this.src;
-    });
   });
 }
 
