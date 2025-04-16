@@ -2225,8 +2225,7 @@ table {
 }
 
 .slider__button {
-  background-color: #e9f5ea;
-  opacity: 50%;
+  background-color: var(--first-color);
   display: grid;
 
   cursor: pointer;
@@ -2239,7 +2238,7 @@ table {
 }
 
 .slider__button:hover {
-  background-color: aliceblue;
+  background-color: rgba(176, 167, 174, 0.3);
 }
 
 .slider__button svg {

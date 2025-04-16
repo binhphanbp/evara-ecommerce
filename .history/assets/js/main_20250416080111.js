@@ -1,13 +1,13 @@
 // SLIDER
 const slideItems = [
   {
-    img: './assets/img/slider-banner-01.jpg',
+    img: '../img/slider-banner-01.jpg',
   },
   {
-    img: './assets/img/slider-banner-02.webp',
+    img: '../img/slider-banner-02.webp',
   },
   {
-    img: './assets/img/slider-banner-03.webp',
+    img: '../img/slider-banner-03.webp',
   },
 ];
 

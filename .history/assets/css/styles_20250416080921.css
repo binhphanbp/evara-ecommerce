@@ -2225,21 +2225,18 @@ table {
 }
 
 .slider__button {
-  background-color: #e9f5ea;
-  opacity: 50%;
+  background-color: rgba(176, 167, 174, 0.3);
   display: grid;
-
+  border-radius: var(--border-radius);
   cursor: pointer;
   margin-left: 0.75rem;
   margin-right: 0.75rem;
   transition: var(--transition);
   padding: 10px;
-  border-radius: 50%;
-  transition: 0.5s;
 }
 
 .slider__button:hover {
-  background-color: aliceblue;
+  background-color: var(--color-primary);
 }
 
 .slider__button svg {
