@@ -56,15 +56,15 @@
               <a href="shop.html" class="nav__link">Shop</a>
             </li>
             <li class="nav__item">
-              <a href="accounts.html" class="nav__link active-link"
-                >My Account</a
-              >
+              <a href="accounts.html" class="nav__link">My Account</a>
             </li>
             <li class="nav__item">
               <a href="compare.html" class="nav__link">Compare</a>
             </li>
             <li class="nav__item">
-              <a href="login-register.html" class="nav__link">Login</a>
+              <a href="login-register.html" class="nav__link active-link"
+                >Login</a
+              >
             </li>
           </ul>
           <div class="header__search">
@@ -98,134 +98,138 @@
         <ul class="breadcrumb__list flex container">
           <li><a href="index.html" class="breadcrumb__link">Home</a></li>
           <li><span class="breadcrumb__link"></span></li>
-          <li><span class="breadcrumb__link">Account</span></li>
+          <li><span class="breadcrumb__link">Shop</span></li>
+          <li><span class="breadcrumb__link"></span></li>
+          <li><span class="breadcrumb__link">Checkout</span></li>
         </ul>
       </section>
 
-      <!--=============== ACCOUNTS ===============-->
-      <section class="accounts section--lg">
-        <div class="accounts__container container grid">
-          <div class="account__tabs">
-            <p class="account__tab active-tab" data-target="#dashboard">
-              <i class="fi fi-rs-settings-sliders"></i> Dashboard
-            </p>
-            <p class="account__tab" data-target="#orders">
-              <i class="fi fi-rs-shopping-bag"></i> Orders
-            </p>
-            <p class="account__tab" data-target="#update-profile">
-              <i class="fi fi-rs-user"></i> Update Profile
-            </p>
-            <p class="account__tab" data-target="#address">
-              <i class="fi fi-rs-marker"></i> My Address
-            </p>
-            <p class="account__tab" data-target="#change-password">
-              <i class="fi fi-rs-settings-sliders"></i> Change Password
-            </p>
-            <p class="account__tab"><i class="fi fi-rs-exit"></i> Logout</p>
+      <!--=============== CHECKOUT ===============-->
+      <section class="checkout section--lg">
+        <div class="checkout__container container grid">
+          <div class="checkout__group">
+            <h3 class="section__title">Billing Details</h3>
+            <form class="form grid">
+              <input type="text" placeholder="Name" class="form__input" />
+              <input type="text" placeholder="Address" class="form__input" />
+              <input type="text" placeholder="City" class="form__input" />
+              <input type="text" placeholder="Country" class="form__input" />
+              <input type="text" placeholder="Postcode" class="form__input" />
+              <input type="text" placeholder="Phone" class="form__input" />
+              <input type="email" placeholder="Email" class="form__input" />
+              <h3 class="checkout__title">Additional Information</h3>
+              <textarea
+                name=""
+                placeholder="order note"
+                class="form__input textarea"
+              ></textarea>
+            </form>
           </div>
-          <div class="tabs__content">
-            <div class="tab__content active-tab" content id="dashboard">
-              <h3 class="tab__header">Hello Rosie</h3>
-              <div class="tab__body">
-                <p class="tab__description">
-                  From your account dashboard. you can easily check &amp; view
-                  your recent order, manage your shipping and billing addresses
-                  and edit your password and account details
-                </p>
+          <div class="checkout__group">
+            <h3 class="section__title">Cart Totals</h3>
+            <table class="order__table">
+              <thead>
+                <tr>
+                  <th colspan="2">Products</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>
+                    <img
+                      src="./assets/img/product-1-2.jpg"
+                      alt=""
+                      class="order__img"
+                    />
+                  </td>
+                  <td>
+                    <h3 class="table__title">Yidarton Women Summer Blue</h3>
+                    <p class="table__quantity">x 2</p>
+                  </td>
+                  <td><span class="table__price">$180.00</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <img
+                      src="./assets/img/product-2-1.jpg"
+                      alt=""
+                      class="order__img"
+                    />
+                  </td>
+                  <td>
+                    <h3 class="table__title">LDB Moon Summer</h3>
+                    <p class="table__quantity">x 1</p>
+                  </td>
+                  <td><span class="table__price">$65.00</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <img
+                      src="./assets/img/product-7-1.jpg"
+                      alt=""
+                      class="order__img"
+                    />
+                  </td>
+                  <td>
+                    <h3 class="table__title">Women Short Sleeve Loose</h3>
+                    <p class="table__quantity">x 2</p>
+                  </td>
+                  <td><span class="table__price">$35.00</span></td>
+                </tr>
+                <tr>
+                  <td><span class="order__subtitle">Subtotal</span></td>
+                  <td colspan="2"><span class="table__price">$280.00</span></td>
+                </tr>
+                <tr>
+                  <td><span class="order__subtitle">Shipping</span></td>
+                  <td colspan="2">
+                    <span class="table__price">Free Shipping</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="order__subtitle">Total</span></td>
+                  <td colspan="2">
+                    <span class="order__grand-total">$280.00</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="payment__methods">
+              <h3 class="checkout__title payment__title">Payment</h3>
+              <div class="payment__option flex">
+                <input
+                  type="radio"
+                  name="radio"
+                  id="l1"
+                  checked
+                  class="payment__input"
+                />
+                <label for="l1" class="payment__label"
+                  >Direct Bank Transfer</label
+                >
+              </div>
+              <div class="payment__option flex">
+                <input
+                  type="radio"
+                  name="radio"
+                  id="l2"
+                  class="payment__input"
+                />
+                <label for="l2" class="payment__label">Check Payment</label>
+              </div>
+              <div class="payment__option flex">
+                <input
+                  type="radio"
+                  name="radio"
+                  id="l3"
+                  class="payment__input"
+                />
+                <label for="l3" class="payment__label">Paypal</label>
               </div>
             </div>
-            <div class="tab__content" content id="orders">
-              <h3 class="tab__header">Your Orders</h3>
-              <div class="tab__body">
-                <table class="placed__order-table">
-                  <thead>
-                    <tr>
-                      <th>Orders</th>
-                      <th>Date</th>
-                      <th>Status</th>
-                      <th>Totals</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>#1357</td>
-                      <td>March 19, 2022</td>
-                      <td>Processing</td>
-                      <td>$125.00</td>
-                      <td><a href="#" class="view__order">View</a></td>
-                    </tr>
-                    <tr>
-                      <td>#2468</td>
-                      <td>June 29, 2022</td>
-                      <td>Completed</td>
-                      <td>$364.00</td>
-                      <td><a href="#" class="view__order">View</a></td>
-                    </tr>
-                    <tr>
-                      <td>#2366</td>
-                      <td>August 02, 2022</td>
-                      <td>Completed</td>
-                      <td>$280.00</td>
-                      <td><a href="#" class="view__order">View</a></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class="tab__content" content id="update-profile">
-              <h3 class="tab__header">Update Profile</h3>
-              <div class="tab__body">
-                <form class="form grid">
-                  <input
-                    type="text"
-                    placeholder="Username"
-                    class="form__input"
-                  />
-                  <div class="form__btn">
-                    <button class="btn btn--md">Save</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div class="tab__content" content id="address">
-              <h3 class="tab__header">Shipping Address</h3>
-              <div class="tab__body">
-                <address class="address">
-                  3522 Interstate <br />
-                  75 Business Spur, <br />
-                  Sault Ste. <br />
-                  Marie, Mi 49783
-                </address>
-                <p class="city">New York</p>
-                <a href="#" class="edit">Edit</a>
-              </div>
-            </div>
-            <div class="tab__content" content id="change-password">
-              <h3 class="tab__header">Change Password</h3>
-              <div class="tab__body">
-                <form class="form grid">
-                  <input
-                    type="password"
-                    placeholder="Current Password"
-                    class="form__input"
-                  />
-                  <input
-                    type="password"
-                    placeholder="New Password"
-                    class="form__input"
-                  />
-                  <input
-                    type="password"
-                    placeholder="Confirm Password"
-                    class="form__input"
-                  />
-                  <div class="form__btn">
-                    <button class="btn btn--md">Save</button>
-                  </div>
-                </form>
-              </div>
-            </div>
+            <button class="btn btn--md">Place Order</button>
           </div>
         </div>
       </section>
@@ -346,8 +350,8 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p class="copyright">&copy; 2025 Evara. All right reserved</p>
-        <span class="designer">Designer by BinhPhan</span>
+        <p class="copyright">&copy; 2024 Evara. All right reserved</p>
+        <span class="designer">Designer by Crypticalcoder</span>
       </div>
     </footer>
 

@@ -217,6 +217,7 @@ function renderProducts() {
       ? `<div class="product__badge ${product.badgeClass}">${product.badge}</div>`
       : '';
 
+    // Create the HTML for the product
     let productHTML = `
                     <div class="product__item">
                         <div class="product__banner">
@@ -284,6 +285,7 @@ function renderProducts() {
     productList.innerHTML += productHTML;
   }
 
+  // Attach events to the links and buttons
   attachEvents();
 }
 

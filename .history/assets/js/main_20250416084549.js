@@ -144,7 +144,7 @@ let products = [
     badge: '',
     badgeClass: '',
     link: 'details.html',
-    brand: 'BadHabits',
+    brand: 'Uniqlo',
     description: 'Casual denim shorts for a relaxed look.',
     sku: 'FWM15VKT008',
     tags: 'Clothes, Unisex, Shorts',
@@ -160,14 +160,14 @@ let products = [
     id: 9,
     category: 'Pants',
     title: 'Long Pants',
-    newPrice: 26.99,
-    oldPrice: 50.99,
+    newPrice: 22.99,
+    oldPrice: 29.99,
     imageDefault: 'assets/img/product-11-1.jpg',
     imageHover: 'assets/img/product-11-2.jpg',
     badge: '',
     badgeClass: '',
     link: 'details.html',
-    brand: 'Nightshop',
+    brand: 'Uniqlo',
     description: 'Casual denim shorts for a relaxed look.',
     sku: 'FWM15VKT008',
     tags: 'Clothes, Unisex, Shorts',
@@ -180,17 +180,17 @@ let products = [
     sizes: ['M', 'L', 'XL'],
   },
   {
-    id: 10,
+    id: 9,
     category: 'Accessories',
     title: 'Flip-flop',
-    newPrice: 29.99,
-    oldPrice: 49.99,
+    newPrice: 22.99,
+    oldPrice: 29.99,
     imageDefault: 'assets/img/product-10-1.jpg',
     imageHover: 'assets/img/product-10-2.jpg',
     badge: '',
     badgeClass: '',
     link: 'details.html',
-    brand: 'Hades',
+    brand: 'Uniqlo',
     description: 'Casual denim shorts for a relaxed look.',
     sku: 'FWM15VKT008',
     tags: 'Clothes, Unisex, Shorts',
@@ -210,13 +210,16 @@ function renderProducts() {
 
   productList.innerHTML = '';
 
+  // Loop through the list of products and render each one
   for (let i = 0; i < products.length; i++) {
     let product = products[i];
 
+    // Create the HTML for the product badge
     let badgeHTML = product.badge
       ? `<div class="product__badge ${product.badgeClass}">${product.badge}</div>`
       : '';
 
+    // Create the HTML for the product
     let productHTML = `
                     <div class="product__item">
                         <div class="product__banner">
@@ -284,6 +287,7 @@ function renderProducts() {
     productList.innerHTML += productHTML;
   }
 
+  // Attach events to the links and buttons
   attachEvents();
 }
 

@@ -284,6 +284,7 @@ function renderProducts() {
     productList.innerHTML += productHTML;
   }
 
+  // Attach events to the links and buttons
   attachEvents();
 }
 

@@ -144,53 +144,7 @@ let products = [
     badge: '',
     badgeClass: '',
     link: 'details.html',
-    brand: 'BadHabits',
-    description: 'Casual denim shorts for a relaxed look.',
-    sku: 'FWM15VKT008',
-    tags: 'Clothes, Unisex, Shorts',
-    stock: 14,
-    colors: [
-      'hsl(37, 100%, 65%)',
-      'hsl(353, 100%, 65%)',
-      'hsl(304, 100%, 78%)',
-    ],
-    sizes: ['M', 'L', 'XL'],
-  },
-  {
-    id: 9,
-    category: 'Pants',
-    title: 'Long Pants',
-    newPrice: 26.99,
-    oldPrice: 50.99,
-    imageDefault: 'assets/img/product-11-1.jpg',
-    imageHover: 'assets/img/product-11-2.jpg',
-    badge: '',
-    badgeClass: '',
-    link: 'details.html',
-    brand: 'Nightshop',
-    description: 'Casual denim shorts for a relaxed look.',
-    sku: 'FWM15VKT008',
-    tags: 'Clothes, Unisex, Shorts',
-    stock: 14,
-    colors: [
-      'hsl(37, 100%, 65%)',
-      'hsl(353, 100%, 65%)',
-      'hsl(304, 100%, 78%)',
-    ],
-    sizes: ['M', 'L', 'XL'],
-  },
-  {
-    id: 10,
-    category: 'Accessories',
-    title: 'Flip-flop',
-    newPrice: 29.99,
-    oldPrice: 49.99,
-    imageDefault: 'assets/img/product-10-1.jpg',
-    imageHover: 'assets/img/product-10-2.jpg',
-    badge: '',
-    badgeClass: '',
-    link: 'details.html',
-    brand: 'Hades',
+    brand: 'Uniqlo',
     description: 'Casual denim shorts for a relaxed look.',
     sku: 'FWM15VKT008',
     tags: 'Clothes, Unisex, Shorts',
@@ -212,11 +166,9 @@ function renderProducts() {
 
   for (let i = 0; i < products.length; i++) {
     let product = products[i];
-
     let badgeHTML = product.badge
       ? `<div class="product__badge ${product.badgeClass}">${product.badge}</div>`
       : '';
-
     let productHTML = `
                     <div class="product__item">
                         <div class="product__banner">
@@ -284,10 +236,7 @@ function renderProducts() {
     productList.innerHTML += productHTML;
   }
 
-  attachEvents();
-}
-
-function attachEvents() {
+  // Gắn sự kiện cho link sản phẩm
   let productLinks = document.querySelectorAll(
     '.product__images, .product__title-link'
   );
@@ -307,6 +256,7 @@ function attachEvents() {
     };
   }
 
+  // Gắn sự kiện cho nút Add to Cart
   let cartButtons = document.querySelectorAll('.cart__btn');
   for (let i = 0; i < cartButtons.length; i++) {
     cartButtons[i].onclick = function (event) {
@@ -317,7 +267,6 @@ function attachEvents() {
     };
   }
 }
-
 cart.load();
 renderProducts();
 

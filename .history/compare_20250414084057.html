@@ -56,12 +56,10 @@
               <a href="shop.html" class="nav__link">Shop</a>
             </li>
             <li class="nav__item">
-              <a href="accounts.html" class="nav__link active-link"
-                >My Account</a
-              >
+              <a href="accounts.html" class="nav__link">My Account</a>
             </li>
             <li class="nav__item">
-              <a href="compare.html" class="nav__link">Compare</a>
+              <a href="compare.html" class="nav__link active-link">Compare</a>
             </li>
             <li class="nav__item">
               <a href="login-register.html" class="nav__link">Login</a>
@@ -98,136 +96,181 @@
         <ul class="breadcrumb__list flex container">
           <li><a href="index.html" class="breadcrumb__link">Home</a></li>
           <li><span class="breadcrumb__link"></span></li>
-          <li><span class="breadcrumb__link">Account</span></li>
+          <li><span class="breadcrumb__link">Shop</span></li>
+          <li><span class="breadcrumb__link"></span></li>
+          <li><span class="breadcrumb__link">Compare</span></li>
         </ul>
       </section>
 
-      <!--=============== ACCOUNTS ===============-->
-      <section class="accounts section--lg">
-        <div class="accounts__container container grid">
-          <div class="account__tabs">
-            <p class="account__tab active-tab" data-target="#dashboard">
-              <i class="fi fi-rs-settings-sliders"></i> Dashboard
-            </p>
-            <p class="account__tab" data-target="#orders">
-              <i class="fi fi-rs-shopping-bag"></i> Orders
-            </p>
-            <p class="account__tab" data-target="#update-profile">
-              <i class="fi fi-rs-user"></i> Update Profile
-            </p>
-            <p class="account__tab" data-target="#address">
-              <i class="fi fi-rs-marker"></i> My Address
-            </p>
-            <p class="account__tab" data-target="#change-password">
-              <i class="fi fi-rs-settings-sliders"></i> Change Password
-            </p>
-            <p class="account__tab"><i class="fi fi-rs-exit"></i> Logout</p>
-          </div>
-          <div class="tabs__content">
-            <div class="tab__content active-tab" content id="dashboard">
-              <h3 class="tab__header">Hello Rosie</h3>
-              <div class="tab__body">
-                <p class="tab__description">
-                  From your account dashboard. you can easily check &amp; view
-                  your recent order, manage your shipping and billing addresses
-                  and edit your password and account details
-                </p>
-              </div>
-            </div>
-            <div class="tab__content" content id="orders">
-              <h3 class="tab__header">Your Orders</h3>
-              <div class="tab__body">
-                <table class="placed__order-table">
-                  <thead>
-                    <tr>
-                      <th>Orders</th>
-                      <th>Date</th>
-                      <th>Status</th>
-                      <th>Totals</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>#1357</td>
-                      <td>March 19, 2022</td>
-                      <td>Processing</td>
-                      <td>$125.00</td>
-                      <td><a href="#" class="view__order">View</a></td>
-                    </tr>
-                    <tr>
-                      <td>#2468</td>
-                      <td>June 29, 2022</td>
-                      <td>Completed</td>
-                      <td>$364.00</td>
-                      <td><a href="#" class="view__order">View</a></td>
-                    </tr>
-                    <tr>
-                      <td>#2366</td>
-                      <td>August 02, 2022</td>
-                      <td>Completed</td>
-                      <td>$280.00</td>
-                      <td><a href="#" class="view__order">View</a></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class="tab__content" content id="update-profile">
-              <h3 class="tab__header">Update Profile</h3>
-              <div class="tab__body">
-                <form class="form grid">
-                  <input
-                    type="text"
-                    placeholder="Username"
-                    class="form__input"
-                  />
-                  <div class="form__btn">
-                    <button class="btn btn--md">Save</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div class="tab__content" content id="address">
-              <h3 class="tab__header">Shipping Address</h3>
-              <div class="tab__body">
-                <address class="address">
-                  3522 Interstate <br />
-                  75 Business Spur, <br />
-                  Sault Ste. <br />
-                  Marie, Mi 49783
-                </address>
-                <p class="city">New York</p>
-                <a href="#" class="edit">Edit</a>
-              </div>
-            </div>
-            <div class="tab__content" content id="change-password">
-              <h3 class="tab__header">Change Password</h3>
-              <div class="tab__body">
-                <form class="form grid">
-                  <input
-                    type="password"
-                    placeholder="Current Password"
-                    class="form__input"
-                  />
-                  <input
-                    type="password"
-                    placeholder="New Password"
-                    class="form__input"
-                  />
-                  <input
-                    type="password"
-                    placeholder="Confirm Password"
-                    class="form__input"
-                  />
-                  <div class="form__btn">
-                    <button class="btn btn--md">Save</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+      <!--=============== COMPARE ===============-->
+      <section class="compare container section--lg">
+        <table class="compare__table">
+          <tr>
+            <th>Image</th>
+            <td>
+              <img
+                src="./assets/img/product-2-1.jpg"
+                alt=""
+                class="compare__img"
+              />
+            </td>
+            <td>
+              <img
+                src="./assets/img/product-4-1.jpg"
+                alt=""
+                class="compare__img"
+              />
+            </td>
+            <td>
+              <img
+                src="./assets/img/product-7-1.jpg"
+                alt=""
+                class="compare__img"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td><h3 class="table__title">Plain Striola Shirts</h3></td>
+            <td><h3 class="table__title">Chen Cardigan</h3></td>
+            <td><h3 class="table__title">Henley Shirt</h3></td>
+          </tr>
+          <tr>
+            <th>Price</th>
+            <td><span class="table__price">$35</span></td>
+            <td><span class="table__price">$67</span></td>
+            <td><span class="table__price">$24</span></td>
+          </tr>
+          <tr>
+            <th>Description</th>
+            <td>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+                perferendis nam, fuga reiciendis libero doloremque distinctio.
+              </p>
+            </td>
+            <td>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+                perferendis nam, fuga reiciendis libero doloremque distinctio.
+              </p>
+            </td>
+            <td>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+                perferendis nam, fuga reiciendis libero doloremque distinctio.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <th>Colors</th>
+            <td>
+              <ul class="color__list compare__colors">
+                <li>
+                  <a
+                    href="#"
+                    class="color__link"
+                    style="background-color: hsl(37, 100%, 65%)"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="color__link"
+                    style="background-color: hsl(353, 100%, 65%)"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="color__link"
+                    style="background-color: hsl(49, 100%, 60%)"
+                  ></a>
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul class="color__list compare__colors">
+                <li>
+                  <a
+                    href="#"
+                    class="color__link"
+                    style="background-color: hsl(37, 100%, 65%)"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="color__link"
+                    style="background-color: hsl(353, 100%, 65%)"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="color__link"
+                    style="background-color: hsl(49, 100%, 60%)"
+                  ></a>
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul class="color__list compare__colors">
+                <li>
+                  <a
+                    href="#"
+                    class="color__link"
+                    style="background-color: hsl(37, 100%, 65%)"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="color__link"
+                    style="background-color: hsl(353, 100%, 65%)"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="color__link"
+                    style="background-color: hsl(49, 100%, 60%)"
+                  ></a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Stock</th>
+            <td><span class="table__stock">Out of stock</span></td>
+            <td><span class="table__stock">Out of stock</span></td>
+            <td><span class="table__stock">Out of stock</span></td>
+          </tr>
+          <tr>
+            <th>Weight</th>
+            <td><span class="table__weight">150 gram</span></td>
+            <td><span class="table__weight">150 gram</span></td>
+            <td><span class="table__weight">150 gram</span></td>
+          </tr>
+          <tr>
+            <th>Dimensions</th>
+            <td><span class="table__dimension">N/A</span></td>
+            <td><span class="table__dimension">N/A</span></td>
+            <td><span class="table__dimension">N/A</span></td>
+          </tr>
+          <tr>
+            <th>Buy</th>
+            <td><a href="#" class="btn btm--sm">Add to Cart</a></td>
+            <td><a href="#" class="btn btm--sm">Add to Cart</a></td>
+            <td><a href="#" class="btn btm--sm">Add to Cart</a></td>
+          </tr>
+          <tr>
+            <th>Remove</th>
+            <td><i class="fi fi-rs-trash table__trash"></i></td>
+            <td><i class="fi fi-rs-trash table__trash"></i></td>
+            <td><i class="fi fi-rs-trash table__trash"></i></td>
+          </tr>
+        </table>
       </section>
 
       <!--=============== NEWSLETTER ===============-->
@@ -346,8 +389,8 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p class="copyright">&copy; 2025 Evara. All right reserved</p>
-        <span class="designer">Designer by BinhPhan</span>
+        <p class="copyright">&copy; 2024 Evara. All right reserved</p>
+        <span class="designer">Designer by Crypticalcoder</span>
       </div>
     </footer>
 

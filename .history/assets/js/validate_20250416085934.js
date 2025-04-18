@@ -33,6 +33,7 @@ loginForm.onsubmit = function () {
 
   var email = document.getElementById('loginEmail').value;
   var password = document.getElementById('loginPassword').value;
+
   var hasError = false;
 
   if (email == '') {

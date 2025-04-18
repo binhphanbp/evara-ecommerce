@@ -143,53 +143,7 @@ let products = [
     badge: '',
     badgeClass: '',
     link: 'details.html',
-    brand: 'BadHabits',
-    description: 'Casual denim shorts for a relaxed look.',
-    sku: 'FWM15VKT008',
-    tags: 'Clothes, Unisex, Shorts',
-    stock: 14,
-    colors: [
-      'hsl(37, 100%, 65%)',
-      'hsl(353, 100%, 65%)',
-      'hsl(304, 100%, 78%)',
-    ],
-    sizes: ['M', 'L', 'XL'],
-  },
-  {
-    id: 9,
-    category: 'Pants',
-    title: 'Long Pants',
-    newPrice: 26.99,
-    oldPrice: 50.99,
-    imageDefault: 'assets/img/product-11-1.jpg',
-    imageHover: 'assets/img/product-11-2.jpg',
-    badge: '',
-    badgeClass: '',
-    link: 'details.html',
-    brand: 'Nightshop',
-    description: 'Casual denim shorts for a relaxed look.',
-    sku: 'FWM15VKT008',
-    tags: 'Clothes, Unisex, Shorts',
-    stock: 14,
-    colors: [
-      'hsl(37, 100%, 65%)',
-      'hsl(353, 100%, 65%)',
-      'hsl(304, 100%, 78%)',
-    ],
-    sizes: ['M', 'L', 'XL'],
-  },
-  {
-    id: 10,
-    category: 'Accessories',
-    title: 'Flip-flop',
-    newPrice: 29.99,
-    oldPrice: 49.99,
-    imageDefault: 'assets/img/product-10-1.jpg',
-    imageHover: 'assets/img/product-10-2.jpg',
-    badge: '',
-    badgeClass: '',
-    link: 'details.html',
-    brand: 'Hades',
+    brand: 'Uniqlo',
     description: 'Casual denim shorts for a relaxed look.',
     sku: 'FWM15VKT008',
     tags: 'Clothes, Unisex, Shorts',
@@ -237,6 +191,7 @@ function renderProductDetails() {
         `;
   }
 
+  // Tạo HTML chi tiết sản phẩm
   let detailsHTML = `
         <div class="details__container container grid">
             <div class="details__group">
@@ -311,8 +266,10 @@ function renderProductDetails() {
 
   detailsContainer.innerHTML = detailsHTML;
 
+  // Gọi hàm imgGallery sau khi render HTML
   imgGallery();
 
+  // Render sản phẩm liên quan
   renderRelatedProducts();
 }
 
@@ -337,6 +294,7 @@ function renderRelatedProducts() {
     return;
   }
 
+  // Lọc sản phẩm có cùng category, loại bỏ sản phẩm hiện tại
   let relatedProducts = [];
   for (let i = 0; i < products.length; i++) {
     if (
@@ -347,11 +305,13 @@ function renderRelatedProducts() {
     }
   }
 
+  // Nếu không có sản phẩm liên quan
   if (relatedProducts.length === 0) {
     relatedContainer.innerHTML = '<p>No related products found!</p>';
     return;
   }
 
+  // Giới hạn tối đa 4 sản phẩm
   let maxProducts = relatedProducts.length > 4 ? 4 : relatedProducts.length;
   let relatedHTML = '';
 
@@ -418,6 +378,7 @@ function renderRelatedProducts() {
 
   relatedContainer.innerHTML = relatedHTML;
 
+  // Gắn sự kiện cho link sản phẩm
   let productLinks = document.querySelectorAll(
     '.product__images, .product__title-link'
   );
@@ -434,6 +395,7 @@ function renderRelatedProducts() {
   }
 }
 
+// Chạy khi DOM tải xong
 window.onload = function () {
   renderProductDetails();
 };
