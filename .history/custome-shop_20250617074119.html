@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tùy chỉnh & Mua sắm</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+      }
+
+      body {
+        background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+        padding: 20px;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+        color: #333;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Canvas Section */
+      .canvas-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      #designCanvas {
+        border: 2px solid #333;
+        background: #fff;
+      }
+
+      .canvas-controls {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      button {
+        padding: 10px;
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      /* SVG Section */
+      .svg-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+      }
+
+      /* Drag and Drop Section */
+      .drag-drop-section {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+      }
+
+      .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+      }
+
+      .product {
+        padding: 10px;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-align: center;
+        cursor: move;
+        transition: transform 0.2s ease;
+      }
+
+      .product:hover {
+        transform: scale(1.1);
+      }
+
+      #cart {
+        border: 2px dashed #333;
+        min-height: 200px;
+        padding: 10px;
+        background: #f9f9f9;
+        border-radius: 5px;
+      }
+
+      .cart-item {
+        animation: slideIn 0.5s ease;
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateY(-20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .geo-section {
+        text-align: center;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+      }
+
+      @media (max-width: 768px) {
+        .canvas-section {
+          grid-template-columns: 1fr;
+        }
+
+        .drag-drop-section {
+          grid-template-columns: 1fr;
+        }
+
+        #designCanvas {
+          width: 100%;
+          height: 200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Custom & shopping</h1>
+
+      <!-- Canvas Section -->
+      <section class="canvas-section">
+        <div>
+          <h2>Tùy chỉnh áo thun</h2>
+          <canvas id="designCanvas" width="400" height="400"></canvas>
+        </div>
+        <div class="canvas-controls">
+          <button onclick="clearCanvas()">Delete canvas</button>
+          <button onclick="saveDesign()">Save canvas</button>
+        </div>
+      </section>
+
+      <!-- SVG Section -->
+      <section class="svg-section">
+        <h2>Choose Color</h2>
+        <svg id="tshirt" width="100" height="100">
+          <path
+            d="M20,20 L40,20 L50,30 L60,20 L80,20 L80,80 L20,80 Z"
+            fill="white"
+            stroke="black"
+          />
+        </svg>
+        <button onclick="changeColor('red')">Red</button>
+        <button onclick="changeColor('blue')">Blue</button>
+        <button onclick="changeColor('yellow')">Yellow</button>
+      </section>
+
+      <!-- Drag and Drop Section -->
+      <section class="drag-drop-section">
+        <div>
+          <h2>List Products</h2>
+          <div class="products">
+            <div
+              class="product"
+              draggable="true"
+              data-id="1"
+              data-name="Áo thun"
+              data-price="200000"
+            >
+              <img src="https://via.placeholder.com/100" alt="Áo thun" />
+              <p>Áo thun - 200.000đ</p>
+            </div>
+            <div
+              class="product"
+              draggable="true"
+              data-id="2"
+              data-name="Quần jeans"
+              data-price="500000"
+            >
+              <img src="https://via.placeholder.com/100" alt="Quần jeans" />
+              <p>Quần jeans - 500.000đ</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h2>Cart</h2>
+          <div id="cart" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p>Drag product here</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Geo Location Section -->
+      <section class="geo-section">
+        <h2>Store near you</h2>
+        <button onclick="getLocation()">Find Store</button>
+        <p id="storeInfo"></p>
+      </section>
+    </div>
+
+    <script>
+      // Canvas
+      const canvas = document.getElementById('designCanvas');
+      const ctx = canvas.getContext('2d');
+      let isDrawing = false;
+
+      canvas.addEventListener('mousedown', () => {
+        isDrawing = true;
+        ctx.beginPath();
+      });
+
+      canvas.addEventListener('mousemove', (e) => {
+        if (!isDrawing) return;
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      });
+
+      canvas.addEventListener('mouseup', () => {
+        isDrawing = false;
+      });
+
+      function clearCanvas() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+
+      function saveDesign() {
+        const design = canvas.toDataURL();
+        localStorage.setItem('customDesign', design);
+        alert('Thiết kế đã được lưu!');
+      }
+
+      window.onload = () => {
+        const savedDesign = localStorage.getItem('customDesign');
+        if (savedDesign) {
+          const img = new Image();
+          img.src = savedDesign;
+          img.onload = () => ctx.drawImage(img, 0, 0);
+        }
+      };
+
+      // SVG
+      function changeColor(color) {
+        const tshirt = document.getElementById('tshirt').querySelector('path');
+        tshirt.setAttribute('fill', color);
+      }
+
+      // Drag and Drop
+      function allowDrop(e) {
+        e.preventDefault();
+      }
+
+      document.querySelectorAll('.product').forEach((product) => {
+        product.addEventListener('dragstart', (e) => {
+          e.dataTransfer.setData('id', e.target.dataset.id);
+          e.dataTransfer.setData('name', e.target.dataset.name);
+          e.dataTransfer.setData('price', e.target.dataset.price);
+        });
+      });
+
+      function drop(e) {
+        e.preventDefault();
+        const id = e.dataTransfer.getData('id');
+        const name = e.dataTransfer.getData('name');
+        const price = e.dataTransfer.getData('price');
+
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        cart.push({ id, name, price });
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        const cartDiv = document.getElementById('cart');
+        cartDiv.innerHTML = '';
+        cart.forEach((item) => {
+          cartDiv.innerHTML += `<p class="cart-item">${item.name} - ${item.price}đ</p>`;
+        });
+      }
+
+      // Geo Location
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showStore, showError);
+        } else {
+          document.getElementById('storeInfo').innerText =
+            'Trình duyệt không hỗ trợ Geo Location.';
+        }
+      }
+
+      function showStore(position) {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        const stores = [
+          { name: 'Cửa hàng Quận 1', lat: 10.7769, lon: 106.7009 },
+          { name: 'Cửa hàng Quận 7', lat: 10.7299, lon: 106.7213 },
+        ];
+
+        let nearestStore = stores[0];
+        let minDistance = Math.sqrt(
+          (lat - stores[0].lat) ** 2 + (lon - stores[0].lon) ** 2
+        );
+
+        stores.forEach((store) => {
+          const distance = Math.sqrt(
+            (lat - store.lat) ** 2 + (lon - store.lon) ** 2
+          );
+          if (distance < minDistance) {
+            minDistance = distance;
+            nearestStore = store;
+          }
+        });
+
+        document.getElementById(
+          'storeInfo'
+        ).innerText = `Cửa hàng gần nhất: ${nearestStore.name}`;
+      }
+
+      function showError(error) {
+        document.getElementById('storeInfo').innerText =
+          'Không thể lấy vị trí của bạn.';
+      }
+    </script>
+  </body>
+</html>
